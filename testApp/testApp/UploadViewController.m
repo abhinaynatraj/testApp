@@ -63,9 +63,9 @@
     NSURL *postUrl = [NSURL URLWithString:@"https://api-server.essenceprototyping.com:999/photos/upload"];
 //    [testServices servicePostRequest:[self imageToNSString:self.pickedImage.image] url:postUrl withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     [testServices servicePostRequest:@"this is the string to be uploaded" url:postUrl withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        [testServices serviceResponseHandleData:data urlResponse:response error:error withCallback:^(NSArray *response) {
+        //[testServices serviceResponseHandleData:data urlResponse:response error:error withCallback:^(NSArray *response) {
             
-        }];
+        //}];
 
         NSLog(@"response is : %@", data);
     }];

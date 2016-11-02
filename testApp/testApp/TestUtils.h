@@ -11,6 +11,8 @@
 @interface TestUtils : NSObject
 - (NSString *)imageToNSString:(UIImage *)image;
 - (UIImage *)stringToUIImage:(NSString *)string;
+-(UIActivityIndicatorView*)addActivityIndicatorToCurrentView:(UIView *)currentView;
+-(void)remvoveActivityIndicatorFromView:(UIView *)currentView;
 
 
 @end

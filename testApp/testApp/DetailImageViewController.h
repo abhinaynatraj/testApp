@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailImageViewController : UIViewController
-@property (weak, nonatomic) NSString *selectedImageId;
-@property (weak, nonatomic) UIImage *selectedImage;
+
+@property (strong, nonatomic) NSString *selectedImageId;
+@property (strong, nonatomic) NSString *selectedImageString;
 
 @end

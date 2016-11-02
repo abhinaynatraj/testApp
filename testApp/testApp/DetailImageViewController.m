@@ -7,6 +7,7 @@
 //
 
 #import "DetailImageViewController.h"
+#import "TestUtils.h"
 
 @interface DetailImageViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImageView;
@@ -27,8 +28,10 @@
 }
 
 - (void) loadSelectedImage {
-    if(self.selectedImageId && self.selectedImage) {
-        self.selectedImageView.image = self.selectedImage;
+    TestUtils *testUtils = [[TestUtils alloc] init];
+    if(self.selectedImageId && self.selectedImageString) {
+        UIImage *image = [testUtils stringToUIImage:self.selectedImageString];
+        self.selectedImageView.image = image;
     }
 }
 /*

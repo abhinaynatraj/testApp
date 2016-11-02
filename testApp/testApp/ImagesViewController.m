@@ -7,7 +7,7 @@
 //
 
 #import "ImagesViewController.h"
-#import "TestServices.h"
+#import "TestRestClient.h"
 #import "DetailImageViewController.h"
 #import "TestUtils.h"
 
@@ -34,18 +34,15 @@
 }
 
 - (void) loadData {
-    TestServices *testServices = [[TestServices alloc] init];
+    TestRestClient *testRestClient = [[TestRestClient alloc] init];
+    TestUtils *testUtils = [[TestUtils alloc] init];
     NSURL *getUrl = [NSURL URLWithString:@"https://api-server.essenceprototyping.com:999/photos/search/?searchString"];
-    //    [testServices servicePostRequest:[self imageToNSString:self.pickedImage.image] url:postUrl withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-    [testServices serviceGETRequest:nil url:getUrl withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        [testServices serviceResponseHandleData:data urlResponse:response error:error withCallback:^(NSArray *responseDictionary) {
-            //
-            self.imagesFromBackend = [responseDictionary mutableCopy];
-            [self.imagesTableView reloadData];
-        }];
-        
-        NSLog(@"response is : %@", data);
+    [testUtils addActivityIndicatorToCurrentView:self.view];
+
+    [testRestClient testRetrieveAllImages:getUrl WithCallback:^(NSArray *images) {
+        self.imagesFromBackend = [images mutableCopy];
+        [self.imagesTableView reloadData];
+        [testUtils remvoveActivityIndicatorFromView:self.view];
     }];
 }
 
@@ -67,29 +64,27 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DetailImageViewController *detailImageViewController = [[DetailImageViewController alloc] init];
     TestUtils *testUtils = [[TestUtils alloc] init];
-    detailImageViewController.selectedImageId = [[self.imagesFromBackend objectAtIndex:indexPath.row] valueForKey:@"id"];
     NSString *selectedImagePath = [[self.imagesFromBackend objectAtIndex:indexPath.row] valueForKey:@"path"];
     NSString *selectedImageId = [[selectedImagePath componentsSeparatedByString:@"/"] lastObject];
     
     NSURL *url=[NSURL URLWithString:[NSString stringWithFormat:@"https://api-server.essenceprototyping.com:999/photos/get/%@",selectedImageId]];
     
+    [testUtils addActivityIndicatorToCurrentView:self.view];
     
-    TestServices *testServices = [[TestServices alloc] init];
-    NSURL *getUrl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api-server.essenceprototyping.com:999/photos/get/%@", selectedImageId]];
-    [testServices serviceGETRequest:nil url:getUrl withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        UIImage *image = [UIImage imageWithData:data];
+    TestRestClient *testRestClient = [[TestRestClient alloc] init];
+    [testRestClient testRetrieveImage:url WithCallback:^(NSString *imageData) {
         
-        detailImageViewController.selectedImage = image;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
         DetailImageViewController *detailVC = [storyboard instantiateViewControllerWithIdentifier:@"DetailImageViewController"];
+        detailVC.selectedImageId = [[self.imagesFromBackend objectAtIndex:indexPath.row] valueForKey:@"_id"];
+        detailVC.title = [[self.imagesFromBackend objectAtIndex:indexPath.row] valueForKey:@"name"];
+        detailVC.selectedImageString = [[NSString alloc] initWithString:imageData];
+        
+        [testUtils remvoveActivityIndicatorFromView:self.view];
         [self.navigationController pushViewController:detailVC animated:YES];
+        
     }];
-    
-    
-    
-    //detailImageViewController.selectedImage = [[self.imagesFromBackend objectAtIndex:indexPath.row] valueForKey:@"id"];
 }
 
 /*

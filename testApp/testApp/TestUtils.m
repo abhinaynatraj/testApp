@@ -26,5 +26,26 @@
     return [UIImage imageWithData:data];
 }
 
+-(UIActivityIndicatorView*)addActivityIndicatorToCurrentView:(UIView *)currentView {
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    activityIndicator.color = [UIColor grayColor];
+    activityIndicator.center = currentView.center;
+    activityIndicator.hidesWhenStopped = YES;
+    [currentView addSubview:activityIndicator];
+    activityIndicator.hidden = NO;
+    [activityIndicator startAnimating];
+    
+    return activityIndicator;
+}
+
+
+-(void)remvoveActivityIndicatorFromView:(UIView *)currentView {
+    for (UIView *subview in currentView.subviews) {
+        if([subview isKindOfClass:[UIActivityIndicatorView class]]) {
+            [subview removeFromSuperview];
+        }
+    }
+}
+
 
 @end

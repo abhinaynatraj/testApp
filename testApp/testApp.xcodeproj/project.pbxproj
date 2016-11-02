@@ -18,6 +18,7 @@
 		307EE9591DC95FB400EE1BCE /* TestServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 307EE9581DC95FB400EE1BCE /* TestServices.m */; };
 		307EE95C1DC9699700EE1BCE /* DetailImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 307EE95B1DC9699700EE1BCE /* DetailImageViewController.m */; };
 		307EE95F1DC96BE500EE1BCE /* TestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 307EE95E1DC96BE500EE1BCE /* TestUtils.m */; };
+		307EE9621DCA0A1E00EE1BCE /* TestRestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 307EE9611DCA0A1E00EE1BCE /* TestRestClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		307EE95B1DC9699700EE1BCE /* DetailImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailImageViewController.m; sourceTree = "<group>"; };
 		307EE95D1DC96BE500EE1BCE /* TestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUtils.h; sourceTree = "<group>"; };
 		307EE95E1DC96BE500EE1BCE /* TestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUtils.m; sourceTree = "<group>"; };
+		307EE9601DCA0A1E00EE1BCE /* TestRestClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRestClient.h; sourceTree = "<group>"; };
+		307EE9611DCA0A1E00EE1BCE /* TestRestClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRestClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				307EE95B1DC9699700EE1BCE /* DetailImageViewController.m */,
 				307EE9571DC95FB400EE1BCE /* TestServices.h */,
 				307EE9581DC95FB400EE1BCE /* TestServices.m */,
+				307EE9601DCA0A1E00EE1BCE /* TestRestClient.h */,
+				307EE9611DCA0A1E00EE1BCE /* TestRestClient.m */,
 				307EE9411DC94FAB00EE1BCE /* Main.storyboard */,
 				307EE9441DC94FAB00EE1BCE /* Assets.xcassets */,
 				307EE9461DC94FAB00EE1BCE /* LaunchScreen.storyboard */,
@@ -180,6 +185,7 @@
 				307EE95C1DC9699700EE1BCE /* DetailImageViewController.m in Sources */,
 				307EE93D1DC94FAB00EE1BCE /* AppDelegate.m in Sources */,
 				307EE93A1DC94FAB00EE1BCE /* main.m in Sources */,
+				307EE9621DCA0A1E00EE1BCE /* TestRestClient.m in Sources */,
 				307EE9591DC95FB400EE1BCE /* TestServices.m in Sources */,
 				307EE95F1DC96BE500EE1BCE /* TestUtils.m in Sources */,
 			);

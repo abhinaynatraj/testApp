@@ -11,8 +11,7 @@
 @interface TestServices : NSObject
 
 - (void)servicePostRequest:(NSString *)postData url:(NSURL *)url withCompletionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
-- (void)serviceGETRequest:(NSString *)requestData url:(NSURL *)url withCompletionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
-- (void)serviceResponseHandleData:(NSData *)data urlResponse:(NSURLResponse *)response error:(NSError *)error withCallback:(void (^)(NSArray *))callback;
+- (void)serviceGETRequestUrl:(NSURL *)url withCompletionHandler:(void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler;
 
     
 @end
