@@ -55,12 +55,17 @@
     }];
 }
 
-- (void)testUploadImage:(NSString *)imageString WithCallback:(void (^)(NSArray *))callback {
+- (void)testUploadImage:(NSDictionary *)imageData WithCallback:(void (^)(NSDictionary *))callback {
     
     TestServices *testServices = [[TestServices alloc] init];
     //TODO: convert imageId to url
-    NSURL *url = [NSURL URLWithString:imageString];
-    [testServices servicePostRequest:imageString url:url withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    NSURL *url = [NSURL URLWithString:@"https://api-server.essenceprototyping.com:999/photos/upload"];
+    NSError * err;
+    NSData * jsonData = [NSJSONSerialization  dataWithJSONObject:imageData options:0 error:&err];
+    NSString * postStringData = [[NSString alloc] initWithData:jsonData   encoding:NSUTF8StringEncoding];
+    
+    
+    [testServices servicePostRequest:postStringData url:url withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error == nil && data != nil) {
 #ifdef DEBUG
             // Log response

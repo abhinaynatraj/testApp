@@ -7,7 +7,8 @@
 //
 
 #import "UploadViewController.h"
-#import "TestServices.h"
+#import "TestRestClient.h"
+#import "TestUtils.h"
 
 @interface UploadViewController ()
 @property (nonatomic, strong) UIImagePickerController *imagePicker;
@@ -59,16 +60,21 @@
 }
 
 - (IBAction)uploadSelectedImage:(id)sender {
-    TestServices *testServices = [[TestServices alloc] init];
-    NSURL *postUrl = [NSURL URLWithString:@"https://api-server.essenceprototyping.com:999/photos/upload"];
-//    [testServices servicePostRequest:[self imageToNSString:self.pickedImage.image] url:postUrl withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-    [testServices servicePostRequest:@"this is the string to be uploaded" url:postUrl withCompletionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        //[testServices serviceResponseHandleData:data urlResponse:response error:error withCallback:^(NSArray *response) {
-            
-        //}];
+    TestRestClient *testRestClient = [[TestRestClient alloc] init];
+    TestUtils *testUtils = [[TestUtils alloc] init];
 
-        NSLog(@"response is : %@", data);
+    NSURL *postUrl = [NSURL URLWithString:@"https://api-server.essenceprototyping.com:999/photos/upload"];
+    [testUtils addActivityIndicatorToCurrentView:self.view];
+    NSMutableDictionary *postDict = [[NSMutableDictionary alloc] init];
+    [postDict setValue:@"logo" forKey:@"name"];
+    [postDict setValue:[testUtils imageToNSString:self.pickedImage.image] forKey:@"data"];
+    [testRestClient testUploadImage:postDict WithCallback:^(NSDictionary *response) {
+        if(response) {
+            [testUtils remvoveActivityIndicatorFromView:self.view];
+        }
+        
     }];
+    
 }
 
 

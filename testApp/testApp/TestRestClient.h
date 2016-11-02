@@ -13,7 +13,7 @@
 
 - (void)testRetrieveAllImages:(NSURL *)url WithCallback:(void (^)(NSArray *))callback;
 - (void)testRetrieveImage:(NSURL *)url WithCallback:(void (^)(NSString *))callback;
-- (void)testUploadImage:(NSString *)imageString WithCallback:(void (^)(NSArray *))callback;
+- (void)testUploadImage:(NSDictionary *)imageData WithCallback:(void (^)(NSDictionary *))callback;
 
     
 @end
