@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchImage" translatesAutoresizingMaskIntoConstraints="NO" id="LY7-0T-Pt9">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMj-v4-pgK">
+                                <rect key="frame" x="279" y="290" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LY7-0T-Pt9" secondAttribute="trailing" id="Hpj-QX-XYR"/>
+                            <constraint firstItem="GMj-v4-pgK" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="259" id="OaD-fC-Se6"/>
+                            <constraint firstItem="LY7-0T-Pt9" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Swh-eW-iGx"/>
+                            <constraint firstItem="GMj-v4-pgK" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TCh-pu-ATX"/>
+                            <constraint firstItem="GMj-v4-pgK" firstAttribute="leading" secondItem="LY7-0T-Pt9" secondAttribute="trailing" constant="-321" id="aTA-Ao-HRA"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="LY7-0T-Pt9" secondAttribute="bottom" id="bdj-0i-dal"/>
+                            <constraint firstItem="GMj-v4-pgK" firstAttribute="top" secondItem="LY7-0T-Pt9" secondAttribute="bottom" constant="-310" id="uQp-OQ-xUP"/>
+                            <constraint firstAttribute="topMargin" secondItem="LY7-0T-Pt9" secondAttribute="top" id="yx9-WN-8i6"/>
+                            <constraint firstItem="GMj-v4-pgK" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ziR-IB-wwM"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="OaD-fC-Se6"/>
+                                <exclude reference="aTA-Ao-HRA"/>
+                                <exclude reference="uQp-OQ-xUP"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchImage" width="375" height="667"/>
+    </resources>
+</document>
